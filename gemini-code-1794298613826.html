@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Lock 5 Detik</title>
+    <style>
+        /* Lapisan transparan yang menutupi seluruh layar */
+        #lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: transparent;
+            z-index: 999999;
+            /* Memblokir semua bentuk klik, hover, dan sentuhan */
+            pointer-events: auto;
+        }
+
+        /* Mencegah seleksi teks dan opsi salin */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Overlay yang mengunci halaman -->
+    <div id="lock-screen"></div>
+
+    <h1>Selamat Datang di Halaman Web</h1>
+    <p>Halaman ini dikunci dan tidak bisa diklik selama 5 detik...</p>
+    <button onclick="alert('Berhasil diklik!')">Tombol Uji Coba</button>
+
+    <script>
+        // Mengubah pointer-events menjadi 'none' setelah 5000 milidetik (5 detik)
+        setTimeout(function() {
+            var overlay = document.getElementById('lock-screen');
+            overlay.style.pointerEvents = 'none';
+            console.log("Halaman sudah bisa diklik kembali.");
+        }, 5000);
+    </script>
+
+</body>
+</html>
